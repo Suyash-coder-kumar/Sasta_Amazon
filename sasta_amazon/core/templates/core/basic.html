@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,31 @@
 </head>
 
 <body>
+
+    <header>
+        <div class="navbar">
+
+            <div class="logo">
+                <a class="logo" href="/">Sasta Amazon</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="/" class="{% if request.path == '/' %} active {% endif %}">Home</a>
+                <a href="{% url 'shop' %}" class="{% if request.resolver_match.url_name == 'shop' %} active {% endif %}">Shop</a>
+                <a href="/cart" class="cart-btn">
+                    <img src="{% static 'core/images/cart.png' %}" class="cart-icon" alt="cart">Cart
+                    <span class="cart-count" id="cart">0</span>
+                </a>
+                <a href="/login" class="login-btn">
+                    <img src="{% static 'core/images/user.png' %}" class="login-icon" alt="login">
+                    Login
+                </a>
+            </div>
+
+        </div>naveebar 
+    </header>
     {% block body %} {% endblock %}
 
 </body>
+
 </html>
