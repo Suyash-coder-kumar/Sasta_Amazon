@@ -114,3 +114,10 @@ header {
     height: 20px;
     margin-top: 2px;
 }
+
+footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+}
