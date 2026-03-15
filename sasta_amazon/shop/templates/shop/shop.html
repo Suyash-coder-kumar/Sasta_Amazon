@@ -3,14 +3,20 @@
 {% block title %} Sasta Amazon-Shop {% endblock %}
 {% block body %}
 
-<h1>Shop page</h1>
-
-{% for product in products %}
-<div>Name  {{product.name}}</div>
-<div>Price ₹{{product.price}}</div>
-<div>Description: {{product.description}}</div>
-<br>
-{% endfor %}
-
+<section class="shop-container">
+    <h1 class="shop-title">Our Products</h1>
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <div class="product-info">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-desc">{{ product.description|truncatewords:20 }}</p>
+                <p class="product-price">₹ {{ product.price }}</p>
+                <a href="/" class="view-btn"> View Product </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 
 {% endblock %}
