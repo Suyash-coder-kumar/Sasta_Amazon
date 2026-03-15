@@ -3,4 +3,5 @@ from products.models import Product, Category
 
 # Create your views here.
 def shop(request):
-    return render(request,'shop/shop.html')
+    products=Product.objects.all()
+    return render(request,'shop/shop.html',{'products':products})
