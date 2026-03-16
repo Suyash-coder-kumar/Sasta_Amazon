@@ -1,5 +1,27 @@
 {% extends 'core/basic.html' %}
 {% block title %} Sasta Amazon-Cart {% endblock %}
 {% block body %}
-<h1>Cart Page</h1>
+
+<div class="cart-container">
+    <h1>Cart Page</h1>
+    {% for item in items %}
+    <div class="cart-item">
+        <img src="{{item.product.image.url}}" class="cart-item-image" alt="{{item.product.name}}">
+        <div class="cart-item-details">
+            <p class="cart-item-name">{{item.product.name}}</p>
+            <p class="cart-item-qty">Qty {{item.quantity}}</p>
+            <p class="cart-item-price">Total ₹{{item.total_price}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="cart-checkout-container">
+    <div class="cart-checkout-box">
+        <p class="cart-checkout-title">Subtotal ({{cart.cart_quantity}} items)</p>
+        <p class="cart-checkout-price">₹{{cart.cart_total}}</p>
+        <a href="/order" class="checkout-btn">Checkout</a>
+    </div>
+    
+</div>
 {% endblock %}

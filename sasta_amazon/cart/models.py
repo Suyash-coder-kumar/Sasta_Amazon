@@ -14,6 +14,9 @@ class Cart(BaseModel):
     @property
     def cart_total(self):
         return sum(item.total_price for item in self.items.all())
+    @property
+    def cart_quantity(self):
+        return sum(item.quantity for item in self.items.all())
 
 
 class CartItem(BaseModel):
