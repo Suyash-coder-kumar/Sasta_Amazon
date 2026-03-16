@@ -19,9 +19,9 @@
             </div>
 
             <div class="nav-links">
-                <a href="/" class="{% if request.path == '/' %} active {% endif %}">Home</a>
+                <a href="{% url 'home' %}" class="{% if request.path == '/' %} active {% endif %}">Home</a>
                 <a href="{% url 'shop' %}" class="{% if request.resolver_match.url_name == 'shop' %} active {% endif %}">Shop</a>
-                <a href="/cart" class="cart-btn">
+                <a href="{% url 'cart' %}" class="cart-btn">
                     <img src="{% static 'core/images/cart.png' %}" class="cart-icon" alt="cart">Cart
                     <span class="cart-count" id="cart">0</span>
                 </a>
