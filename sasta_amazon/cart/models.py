@@ -1,5 +1,6 @@
 from django.db import models
-from products.models import BaseModel,Product
+from products.models import Product
+from core.models import BaseModel
 import uuid
 from django.conf import settings
 # Create your models here.

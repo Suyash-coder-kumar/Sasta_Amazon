@@ -1,14 +1,8 @@
 from django.db import models
+from core.models import BaseModel
 import uuid
 
 # Create your models here.
-class BaseModel(models.Model):
-    created_at=models.DateTimeField(auto_now_add=True)
-    modified_at=models.DateTimeField(auto_now=True)
-
-    class Meta:
-        abstract=True
-
 
 class Category(BaseModel):
     name=models.CharField(max_length=200)
