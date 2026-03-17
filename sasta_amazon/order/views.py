@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from order.models import Order,OrderItem
 from cart.models import Cart
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def creat_order(request):
     user=request.user
     cart=Cart.objects.get(user=user)
@@ -20,6 +22,7 @@ def creat_order(request):
         cart.items.all().delete()
     
     return redirect('success_order',order_id=order.id)
-    
+
+@login_required    
 def success_order(request,order_id):
     return render(request,'order/success.html')
