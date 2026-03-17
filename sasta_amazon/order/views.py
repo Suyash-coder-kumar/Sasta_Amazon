@@ -19,7 +19,7 @@ def creat_order(request):
 
         cart.items.all().delete()
     
-    return redirect('success_order')
+    return redirect('success_order',order_id=order.id)
     
-def success_order(request):
+def success_order(request,order_id):
     return render(request,'order/success.html')
