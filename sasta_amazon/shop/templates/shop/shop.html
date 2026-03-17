@@ -13,7 +13,21 @@
                 <h3 class="product-name">{{ product.name }}</h3>
                 <p class="product-desc">{{ product.description|truncatewords:20 }}</p>
                 <p class="product-price">₹ {{ product.price }}</p>
+                {% if product.name in prod_dict %}
+                <div class="cart-method-block">
+                    <a href="{% url 'cart_minus' product.id %}" class="cart-minus-btn">-</a>
+                    <p class="cart-item-qty">
+                        {% for key, value in prod_dict.items %}
+                        {% if key == product.name %}
+                        {{ value }}
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                    <a href="{% url 'cart_add' product.id %}" class="cart-add-btn">+</a>
+                </div>
+                {% else %}
                 <a href="{% url 'cart_add' product.id %}" class="view-btn"> Add to cart </a>
+                {% endif %}
             </div>
         </div>
         {% endfor %}

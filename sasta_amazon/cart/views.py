@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from cart.models import Cart,CartItem
 from products.models import Product
+
 # Create your views here.
 
 def cart(request):
@@ -18,7 +19,7 @@ def cart_add(request,product_id):
         cart_item.quantity+=1
         cart_item.save()
     
-    return redirect('cart')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def cart_minus(request,product_id):
     user=request.user
@@ -34,7 +35,7 @@ def cart_minus(request,product_id):
     except CartItem.DoesNotExist:
         pass
 
-    return redirect('cart')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def cart_remove(request,product_id):
     user=request.user
@@ -46,5 +47,5 @@ def cart_remove(request,product_id):
     except CartItem.DoesNotExist:
         pass
 
-    return redirect('cart')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
