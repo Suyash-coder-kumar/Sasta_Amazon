@@ -26,3 +26,7 @@ def creat_order(request):
 @login_required    
 def success_order(request,order_id):
     return render(request,'order/success.html')
+
+@login_required
+def user_order(request):
+    pass
