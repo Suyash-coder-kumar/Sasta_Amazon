@@ -9,9 +9,14 @@
         <img src="{{item.product.image.url}}" class="cart-item-image" alt="{{item.product.name}}">
         <div class="cart-item-details">
             <p class="cart-item-name">{{item.product.name}}</p>
-            <p class="cart-item-qty">Qty {{item.quantity}}</p>
             <p class="cart-item-price">Total ₹{{item.total_price}}</p>
         </div>
+        <div class="cart-method-block">
+            <a href="{% url 'cart_minus' item.product.id %}" class="cart-minus-btn">-</a>
+            <p class="cart-item-qty" >{{item.quantity}}</p>
+            <a href="{% url 'cart_add' item.product.id %}" class="cart-add-btn">+</a>
+        </div>
+        <a href="{% url 'cart_remove' item.product.id %}" class="cart-remove-btn">Remove</a>
     </div>
     {% endfor %}
 </div>

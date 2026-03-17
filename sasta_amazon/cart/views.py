@@ -18,7 +18,7 @@ def cart_add(request,product_id):
         cart_item.quantity+=1
         cart_item.save()
     
-    return redirect('shop')
+    return redirect('cart')
 
 def cart_minus(request,product_id):
     user=request.user
@@ -34,7 +34,7 @@ def cart_minus(request,product_id):
     except CartItem.DoesNotExist:
         pass
 
-    return redirect('shop')
+    return redirect('cart')
 
 def cart_remove(request,product_id):
     user=request.user
@@ -46,5 +46,5 @@ def cart_remove(request,product_id):
     except CartItem.DoesNotExist:
         pass
 
-    return redirect('shop')
+    return redirect('cart')
 
