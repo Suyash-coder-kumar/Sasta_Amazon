@@ -5,7 +5,7 @@ from products.models import Product
 
 def cart(request):
     user=request.user
-    cart=Cart.objects.get(user=user)
+    cart=get_object_or_404(Cart,user=user)
     items=cart.items.all()
     return render(request,'cart.html',{'cart':cart,'items':items})
 

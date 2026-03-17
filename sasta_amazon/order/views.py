@@ -29,4 +29,5 @@ def success_order(request,order_id):
 
 @login_required
 def user_order(request):
-    pass
+    orders=Order.objects.filter(user=request.user)
+    return render(request,'order/myorder.html',{'orders':orders})
