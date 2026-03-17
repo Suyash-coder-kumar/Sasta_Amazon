@@ -20,7 +20,7 @@
     <div class="cart-checkout-box">
         <p class="cart-checkout-title">Subtotal ({{cart.cart_quantity}} items)</p>
         <p class="cart-checkout-price">₹{{cart.cart_total}}</p>
-        <a href="/order" class="checkout-btn">Checkout</a>
+        <a href="{% url 'create_order' %}" class="checkout-btn">Checkout</a>
     </div>
     
 </div>

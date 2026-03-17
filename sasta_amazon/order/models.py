@@ -8,7 +8,6 @@ import uuid
 class Order(BaseModel):
     id=models.UUIDField(primary_key=True,editable=False,default=uuid.uuid4)
     user=models.ForeignKey(User,related_name="orders",on_delete=models.CASCADE)
-    total=models.PositiveIntegerField()
     
     def __str__(self):
         return f"Order {self.id} - {self.user.username}"
