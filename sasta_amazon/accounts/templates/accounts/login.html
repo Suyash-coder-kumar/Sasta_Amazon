@@ -1,0 +1,25 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}Login {% endblock %}
+{% block body %}
+<div class="auth-container">
+    <div class="auth-box">
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="auth-input-block">
+                <div class="auth-lable">{{form.username.label_tag}}</div>
+                <div class="auth-input">{{form.username}}</div>
+            </div>
+            <div class="auth-input-block">
+                <div class="auth-lable">{{form.password.label_tag}}</div>
+                <div class="auth-input">{{form.password}}</div>
+            </div>
+            <button class=" auth-btn" type="submit">Login</button>
+        </form>
+        <h3>Don't have an account? <a class="auth-btn" href="{% url 'register' %}">Signup</a></h3>
+        
+
+    </div>
+</div>
+{% endblock %}

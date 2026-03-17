@@ -39,7 +39,7 @@ def user_register(request):
     else:
         form=UserCreationForm()
 
-    return render(request,'register.html',{'form':form})
+    return render(request,'accounts/register.html',{'form':form})
 
 def user_logout(request):
     logout(request)

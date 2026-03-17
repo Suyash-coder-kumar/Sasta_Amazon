@@ -25,7 +25,8 @@
                     <img src="{% static 'core/images/cart.png' %}" class="cart-icon" alt="cart">Cart
                     <span class="cart-count" id="cart">0</span>
                 </a>
-                <a href="/login" class="login-btn">
+                
+                <a href="{% url 'login' %}" class="login-btn">
                     <img src="{% static 'core/images/user.png' %}" class="login-icon" alt="login">
                     Login
                 </a>
