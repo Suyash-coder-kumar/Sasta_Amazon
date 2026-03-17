@@ -31,7 +31,8 @@ def user_register(request):
 
         if form.is_valid():
             user=form.save()
-            return redirect('login')
+            login(request,user)
+            return redirect('home')
         else:
             messages.error(request,form.errors)
 
