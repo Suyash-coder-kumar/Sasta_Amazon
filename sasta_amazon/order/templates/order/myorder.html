@@ -3,30 +3,34 @@
 {% block title %}My Orders{% endblock %}
 
 {% block body %}
-<h2>My Orders</h2>
+<div class="order-container">
+    <h2>My Orders</h2>
+    {% if orders %}
+    {% for order in orders %}
+    <div class="order-box">
+        <div class="order-detail">
 
-{% if orders %}
-{% for order in orders %}
-<div class="order-box">
-    <h3>Order ID: {{ order.id }}</h3>
-    <p>Total: ₹{{ order.total }}</p>
+            <h3>Order ID: {{ order.id }}</h3>
+            <h4>#Items:</h4>
+            <ul>
+                {% for item in order.items.all %}
+                <li>
+                    {{ item.product.name }}
+                    (Qty: {{ item.quantity }})
+                    - ₹{{ item.total }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="order-total">
+            <p>Total: ₹{{ order.total }}</p>
+        </div>
 
-    <h4>Items:</h4>
-    <ul>
-        {% for item in order.items.all %}
-        <li>
-            {{ item.product.name }}
-            (Qty: {{ item.quantity }})
-            - ₹{{ item.total }}
-        </li>
-        {% endfor %}
-    </ul>
-
-    <hr>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No orders yet.</p>
+    {% endif %}
 </div>
-{% endfor %}
-{% else %}
-<p>No orders yet.</p>
-{% endif %}
 
 {% endblock %}
