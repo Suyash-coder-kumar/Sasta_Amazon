@@ -6,7 +6,11 @@
     <h1>Cart Page</h1>
     {% for item in items %}
     <div class="cart-item">
+        {% if request.user.is_authenticated %}
         <img src="{{item.product.image.url}}" class="cart-item-image" alt="{{item.product.name}}">
+        {% else %}
+        <img src="{{item.product.image}}" class="cart-item-image" alt="{{item.product.name}}">
+        {% endif %}
         <div class="cart-item-details">
             <p class="cart-item-name">{{item.product.name}}</p>
             <p class="cart-item-price">Total ₹{{item.total_price}}</p>
@@ -23,7 +27,7 @@
 
 <div class="cart-checkout-container">
     <div class="cart-checkout-box">
-        <p class="cart-checkout-title">Subtotal ({{cart.cart_quantity}} items)</p>
+        <p class="cart-checkout-title">Subtotal ({{counter}} items)</p>
         <p class="cart-checkout-price">₹{{cart.cart_total}}</p>
         <a href="{% url 'create_order' %}" class="checkout-btn">Checkout</a>
     </div>

@@ -1,4 +1,5 @@
 from cart.models import Cart
+from cart.cart import SessionCart
 from django.shortcuts import get_object_or_404
 
 def global_data(request):
@@ -6,4 +7,5 @@ def global_data(request):
         cart=get_object_or_404(Cart,user=request.user)
         return {'counter':cart.cart_quantity}
     else:
-        return {'counter':0}
+        cart=SessionCart(request)
+        return {'counter':cart.cart_quantity}
