@@ -127,13 +127,16 @@ cd sasta_amazon
 python manage.py makemigrations
 python manage.py migrate
 ```
-
-### 6. Create admin user
+### 6. Enter custom data
+```bash
+python manage.py enter_data
+```
+### 7. Create admin user
 ```bash
 python manage.py createsuperuser
 ```
 
-### 7. Run server
+### 8. Run server
 ```bash
 python manage.py runserver
 ```
