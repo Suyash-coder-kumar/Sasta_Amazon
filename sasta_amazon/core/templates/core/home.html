@@ -2,9 +2,41 @@
 
 {% block title %}Sasta Amazon{% endblock %}
 
-{% block body %} 
-
-<h1>Homepage of Sasta Amazon</h1>
-
+{% block body %}
+<div class="home-hero">
+    <h1>Sasta Amazon</h1>
+    <p>Let’s make your shopping experience amazing.”</p>
+    <a href="{% url 'shop' %}" class="home-hero-btn">Shop Now</a>
+</div>
+<div class="home-shop-container">
+    <h1>Add what you like !</h1>
+    <div class="home-shop-box">
+        {% for product in products %}
+        <div class="home-shop-card">
+            <img src="{{product.image.url}}" alt="{{product.name}}">
+            <div class="home-shop-card-details">
+                <div class="home-p">
+                    <p>{{product.name}}</p>
+                    <p class="product-price">₹ {{ product.price }}</p>
+                </div>
+                {% if product.name in prod_dict %}
+                <div class="cart-method-block home-shop-btn">
+                    <a href="{% url 'cart_minus' product.id %}" class="cart-minus-btn">-</a>
+                    <p class="cart-item-qty">
+                        {% for key, value in prod_dict.items %}
+                        {% if key == product.name %}
+                        {{ value }}
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                    <a href="{% url 'cart_add' product.id %}" class="cart-add-btn">+</a>
+                </div>
+                {% else %}
+                <a href="{% url 'cart_add' product.id %}" class="view-btn home-shop-btn"> Add to cart </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
-

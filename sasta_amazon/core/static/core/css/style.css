@@ -539,3 +539,110 @@ footer {
     font-size: 30px;
     align-content: center;
 }
+
+.home-hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1512436991641-6745cdb1723f");
+    background-size: cover;
+    display: flex;
+    background-position: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.home-hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.home-hero p {
+    font-size: 25px;
+}
+
+.home-hero-btn {
+    background-color: var(--primary);
+    padding: 14px 35px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 25px;
+    margin-top: 20px;
+
+}
+
+.home-hero-btn:hover {
+    transition: 0.3s ease;
+    background-color: var(--secondary);
+}
+
+.home-shop-container {
+    height: 750px;
+    margin: 30px 0;
+    padding: 20px 15px;
+}
+
+.home-shop-container h1 {
+    font-size: 30px;
+    margin-left: px;
+    margin-bottom: 30px;
+    width: 25%;
+    padding: 17px 10px 17px 10px;
+    border-radius: 0 25px 0 25px;
+    background: linear-gradient(to left, #51ea0a, #5fc862);
+}
+
+.home-shop-box {
+    background-color: #a7ff7ec7;
+    height: 80%;
+    padding: 10px;
+    display: flex;
+    border-radius: 25px;
+    flex-direction: row;
+    gap: 35px;
+    justify-content: center;
+}
+
+.home-shop-card {
+    margin: 25px 20px;
+    background-color: #fff;
+    border-radius: 25px;
+    width: 25%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.home-shop-card:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
+
+}
+
+.home-shop-card img {
+    height: 55%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-shop-card-details {
+    height: 45%;
+    padding: 20px;
+    align-items: center;
+}
+
+.home-p {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.home-shop-btn {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 15px 25px;
+    border-radius: 30px;
+}
