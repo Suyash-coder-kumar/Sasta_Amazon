@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,authenticate,logout
 from django.contrib import messages
+from cart.models import Cart
 
 # Create your views here.
 
@@ -15,6 +16,7 @@ def user_login(request):
         if form.is_valid():
             user=form.get_user()
             login(request,user)
+            cart,created=Cart.objects.get_or_create(user=user)
             return redirect('home')
         else:
             messages.error(request,form.errors)
@@ -32,6 +34,7 @@ def user_register(request):
         if form.is_valid():
             user=form.save()
             login(request,user)
+            cart,created=Cart.objects.get_or_create(user=user)
             return redirect('home')
         else:
             messages.error(request,form.errors)
