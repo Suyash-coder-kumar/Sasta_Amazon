@@ -1,11 +1,12 @@
 {% extends 'core/basic.html' %}
+{% load static %}
 
 {% block title %}Sasta Amazon{% endblock %}
 
 {% block body %}
 <div class="home-hero">
     <h1>Sasta Amazon</h1>
-    <p>Let’s make your shopping experience amazing.”</p>
+    <p><span id="text"></span><span class="cursor">|</span></p>
     <a href="{% url 'shop' %}" class="home-hero-btn">Shop Now</a>
 </div>
 <div class="home-shop-container">
@@ -40,3 +41,5 @@
     </div>
 </div>
 {% endblock %}
+
+{% block script%} <script src="{% static 'core/js/typing.js' %}"></script> {% endblock %}
