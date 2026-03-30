@@ -11,7 +11,7 @@ class Command(BaseCommand):
         fashion, _ = Category.objects.get_or_create(name="Fashion")
 
 
-        base_path = 'media/core/'
+        base_path = 'media/'
 
         with open(os.path.join(base_path, 'laptop.jpg'), 'rb') as f:
             product, created = Product.objects.get_or_create(

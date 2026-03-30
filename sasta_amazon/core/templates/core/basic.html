@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/icon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/icon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/icon/favicon-16x16.png' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 
@@ -20,7 +23,8 @@
 
             <div class="nav-links">
                 <a href="{% url 'home' %}" class="{% if request.path == '/' %} active {% endif %}">Home</a>
-                <a href="{% url 'shop' %}" class="{% if request.resolver_match.url_name == 'shop' %} active {% endif %}">Shop</a>
+                <a href="{% url 'shop' %}"
+                    class="{% if request.resolver_match.url_name == 'shop' %} active {% endif %}">Shop</a>
                 <a href="{% url 'cart' %}" class="cart-btn">
                     <img src="{% static 'core/images/cart.png' %}" class="cart-icon" alt="cart">Cart
                     <span class="cart-count" id="cart">{{counter}}</span>
@@ -44,14 +48,14 @@
     <main>
 
         {% block body %} {% endblock %}
-        
+
     </main>
 
     <footer>
         <p>© 2026 Sasta Amazon. All Rights Reserved.</p>
     </footer>
 
-    {% block script%}  {% endblock %}
+    {% block script%} {% endblock %}
 </body>
 
 </html>
