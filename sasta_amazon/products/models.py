@@ -23,6 +23,15 @@ class Product(BaseModel):
     price=models.DecimalField(max_digits=10,decimal_places=2)
     description=models.TextField()
     image=models.ImageField(upload_to="core",null=True,blank=True)
+    stock=models.IntegerField(default=1)
+    is_active=models.BooleanField()
+
+    def save(self,*args,**kwargs):
+        if self.stock<=0:
+            self.is_active=False
+        else:
+            self.is_active=True
+        super().save(*args,**kwargs)
 
     class Meta:
         verbose_name_plural="Products"
